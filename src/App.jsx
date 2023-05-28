@@ -5,9 +5,9 @@ import { router } from './routes/Routes'
 function App() {
 
   return (
-    <>
-      <RouterProvider router={router}></RouterProvider>
-    </>
+    <div className=' w-11/12 mx-auto'>
+        <RouterProvider router={router}></RouterProvider>
+    </div>
   )
 }
 
