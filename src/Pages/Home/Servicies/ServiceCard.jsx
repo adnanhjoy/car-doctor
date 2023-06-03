@@ -3,7 +3,6 @@ import { FaArrowRight } from "react-icons/fa";
 
 const ServiceCard = ({ service }) => {
     const { img, price, title } = service;
-    console.log(service)
     return (
         <div className="card card-compact w-96 bg-base-100 shadow-xl">
             <figure><img src={img} alt="Shoes" /></figure>
