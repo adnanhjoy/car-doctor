@@ -21,7 +21,7 @@ const Orders = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount > 0) {
-                        const remaingOrder = orders.filter(ord => ord._id == !id);
+                        const remaingOrder = orders.filter(ord => ord._id !== id);
                         setOrders(remaingOrder)
                     }
                 });

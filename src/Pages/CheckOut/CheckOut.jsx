@@ -46,7 +46,7 @@ const CheckOut = () => {
 
     return (
         <div className='m-10'>
-            <h2 className=' text-4xl'>{title}</h2>
+            <h2 className='text-center text-4xl my-10'>{title}</h2>
             <form onSubmit={handleCheckOut}>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
                     <input name='fname' type="text" placeholder="First Name" className="input input-bordered w-full" />

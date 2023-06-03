@@ -9,14 +9,18 @@ const Header = () => {
 
     const handleLogout = () => {
         logOut()
-        .then(() => {})
-        .catch(err => console.error(err))
+            .then(() => { })
+            .catch(err => console.error(err))
     }
 
     const menuItems = <>
         <li><Link className='font-semibold' to='/'>Home</Link></li>
         {
-            user?.uid ? <li><Link onClick={handleLogout} className='font-semibold'>Sign Out</Link></li> :
+            user?.uid ?
+                <>
+                    <li><Link className='font-semibold' to='/orders'>Order</Link></li>
+                    <li><Link onClick={handleLogout} className='font-semibold'>Sign Out</Link></li>
+                </> :
                 <li><Link className='font-semibold' to='/login'>Login</Link></li>
         }
         <li><Link className='font-semibold'>{user?.email}</Link></li>
