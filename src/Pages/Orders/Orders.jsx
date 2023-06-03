@@ -12,6 +12,22 @@ const Orders = () => {
             .then(data => setOrders(data))
     }, [user?.email])
 
+    const handleDelete = id => {
+        const agree = confirm('Are you sure ? you want to cancle this order');
+        if (agree) {
+            fetch(`http://localhost:5000/orders/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        const remaingOrder = orders.filter(ord => ord._id == !id);
+                        setOrders(remaingOrder)
+                    }
+                });
+        }
+    }
+
     return (
         <div className='my-10'>
             <h2 className='text-center text-4xl my-10'>You Have {orders.length} orders</h2>
@@ -36,6 +52,7 @@ const Orders = () => {
                             orders.map(order => <OrderRow
                                 key={order._id}
                                 order={order}
+                                handleDelete={handleDelete}
                             ></OrderRow>)
                         }
                     </tbody>
